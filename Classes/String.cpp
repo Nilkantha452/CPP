@@ -89,6 +89,14 @@ public:
         return this->len;
     }
 
+    ~String()
+    {
+        std::cout << "dtor\n";
+        delete resource;
+        resource = nullptr;
+        len = 0;
+    }
+
     friend std::istream& operator >> (std::istream& cin, String& str);
     friend std::ostream& operator <<  (std::ostream& cout, String& str);
 };
